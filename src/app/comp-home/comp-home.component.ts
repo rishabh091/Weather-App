@@ -40,10 +40,6 @@ export class CompHomeComponent implements OnInit {
         speed: ''
       },
       dt: '',
-      sys: {
-        sunrise: '',
-        sunset: ''
-      },
       name: ''
     }
 
@@ -57,9 +53,11 @@ export class CompHomeComponent implements OnInit {
   }
 
   getWeather(index) {
+
     this.weatherService.getWeather(this.city)
     .then((result: any) => {
       result.update = this.weatherService.currentTime()
+      result.icon = this.weatherService.getIcon(result.weather[0].main)
       this.cities[index] = result
 
       console.log(this.cities)

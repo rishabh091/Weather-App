@@ -1,5 +1,6 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,61 @@ export class ServiceWeatherService {
     const date = new Date()
 
     return date.getHours() + ":" + date.getMinutes()
+  }
+
+  convertInCelsius(number) {
+    return (number - 273).toFixed(1)
+  }
+
+  getIcon(weather: String) {
+    const weathers = [
+      {
+        weather: 'brocken clouds',
+        asset: '../../assets/haze.svg'
+      },
+      {
+        weather: 'haze',
+        asset: '../../assets/haze.svg'
+      },
+      {
+        weather: 'cloud',
+        asset: '../../assets/cloud.svg'
+      },
+      {
+        weather: 'thunderstorm',
+        asset: '../../assets/thunderstorm.svg'
+      },
+      {
+        weather: 'windy',
+        asset: '../../assets/fog.svg'
+      },
+      {
+        weather: 'fog',
+        asset: '../../assets/fog.svg'
+      },
+      {
+        weather: 'rain',
+        asset: '../../assets/rainy.svg'
+      },
+      {
+        weather: 'rainy',
+        asset: '../../assets/rainy.svg'
+      },
+      {
+        weather: 'snow',
+        asset: '../../assets/snow.svg'
+      }
+    ]
+
+    let asset = '../../assets/cloud.svg'
+    weathers.forEach(value => {
+      if(value.weather.toLowerCase().includes(weather.toLowerCase()) ||
+      weather.toLowerCase().includes(value.weather.toLowerCase())) {
+
+        asset = value.asset
+      }
+    });
+
+    return asset
   }
 }

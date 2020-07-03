@@ -6,7 +6,7 @@
 }
 
 .width-400px {
-    width: 400px;
+    width: 350px;
 }
 
 .custom-spacing {
@@ -15,7 +15,7 @@
 }
 
 .input-field {
-    width: 40vh;
+    width: 50%;
     border: none;
     outline: none;
     background: transparent;
@@ -57,4 +57,8 @@
 
 .body-opacity {
     opacity: 0;
+}
+
+.data > div {
+    margin-bottom: 5px;
 }
