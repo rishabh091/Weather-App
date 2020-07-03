@@ -54,19 +54,24 @@ export class CompHomeComponent implements OnInit {
 
   getWeather(index) {
 
+    let spinner = document.getElementById(index + 100)
+    spinner.style.display = "block"
+
     this.weatherService.getWeather(this.city)
     .then((result: any) => {
       result.update = this.weatherService.currentTime()
       result.icon = this.weatherService.getIcon(result.weather[0].main)
+      spinner.style.display = "none"
+
       this.cities[index] = result
 
       console.log(this.cities)
     })
     .catch((err) => {
       console.log(err)
-
-      //will later make a proper alert
-      alert('City not found')
+      //show error
+      spinner.style.display = "none"
+      document.getElementById(index).style.display = "block"
     })
   }
 

@@ -2,7 +2,13 @@
 
 <div class="container-fluid center-pos bg-blue pl-2 pr-2">
     <div *ngFor="let city of cities; index as i;">
-        <div class="card width-400px mt-4 mb-4 text-white bg-grad" [id]="i">
+        <div class="card width-400px mt-4 mb-4 text-white bg-grad">
+
+            <!--error message-->
+            <div class="alert alert-danger alert-dismissible fade show display-none" [id]="i">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Requested city not found!</strong> please enter a valid city name
+            </div>
             
             <div class="d-flex">
                 <input type="text" class="input-field m-2 p-2" placeholder="city" (keyup)="enterCity($event, i)" [value]="city.name">
@@ -16,6 +22,14 @@
                 <button type="button" class="btn bg-contrast" (click)="getWeather(i)">See Weather</button>
                 
                 <div class="mt-5">
+
+                    <div class="text-center display-none" [id]="i + 100">
+                        <div>
+                            <span class="spinner spinner-border-md spinner-border text-success mr-2"></span>
+                        </div>
+                        <div>Please Wait..</div>
+                    </div>
+
                     <div class="data mt-5">
                         <div *ngIf="city.coord.lon"><span class="font-size-small mr-3 text-muted">Longitude: </span> {{ city.coord.lon }}</div>
                         <div *ngIf="city.coord.lat"><span class="font-size-small mr-3 text-muted">Latitude: </span> {{ city.coord.lat }}</div>
