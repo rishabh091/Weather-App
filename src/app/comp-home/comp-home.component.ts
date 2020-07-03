@@ -7,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompHomeComponent implements OnInit {
 
-  public cities = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+  public cities = [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+  private city: String
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  enterCity(event, index) {
+    this.city = event.target.value
   }
 
 }

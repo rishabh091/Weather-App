@@ -18,7 +18,10 @@
     width: 40vh;
     border: none;
     outline: none;
-    border-bottom: 1px solid gray;
+    background: transparent;
+    border-bottom: 1px solid white;
+    color: white;
+    text-transform: capitalize;
 }
 
 .weather-icon {
@@ -30,5 +33,24 @@
 }
 
 .bg-grad {
-    background: linear-gradient(to-right var(--dark-blue), var(--blue));
+    background-color: var(--super-blue);
+}
+
+.text-contrast {
+    color: var(--contrast-red);
+}
+
+.bg-contrast {
+    background: var(--contrast-red);
+    color: white;
+    border-radius: 4rem;
+    width: 25vh;
+    font-size: 0.9rem;
+}
+
+.font-size-small {
+    font-size: 0.8rem;
+}
+.font-xs {
+    font-size: 0.7rem;
 }
