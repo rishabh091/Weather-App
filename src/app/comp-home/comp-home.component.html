@@ -2,37 +2,37 @@
 
 <div class="container-fluid center-pos bg-blue pl-2 pr-2">
     <div *ngFor="let city of cities; index as i;">
-        <div class="card width-400px mt-4 mb-4 text-white bg-grad">
+        <div class="card width-400px mt-4 mb-4 text-white bg-grad" [id]="i">
             <div class="d-flex">
-                <input type="text" class="input-field m-2 p-2" placeholder="city" (keyup)="enterCity($event, i)">
+                <input type="text" class="input-field m-2 p-2" placeholder="city" (keyup)="enterCity($event, i)" [value]="city.name">
                 <img class="card-img-top weather-icon m-4" src="../../assets/sunny.svg" alt="weather image">
             </div>
 
             <div class="card-body">
-                <button type="button" class="btn bg-contrast">See Weather</button>
+                <button type="button" class="btn bg-contrast" (click)="getWeather(i)">See Weather</button>
                 
                 <div class="mt-5">
-                    <div class="card-title">City</div>
-                    <div>Weather</div>
+                    <div class="card-title">{{ city.name }}</div>
+                    <div>{{ city.weather.main }}</div>
                     <div class="font-size-small">
-                        <div>Longitude : </div>
-                        <div>Latitude : </div>
+                        <div *ngIf="city.coord.lon">Longitude : {{ city.coord.lon }}</div>
+                        <div *ngIf="city.coord.lat">Latitude : {{ city.coord.lat }}</div>
 
-                        <div class="mt-3">Temp : </div>
-                        <div>Feels like</div>
-                        <div>Min : </div>
-                        <div>Max : </div>
+                        <div *ngIf="city.main.temp" class="mt-3">Temp : {{ city.main.temp - 273 }} Celsius</div>
+                        <div *ngIf="city.main.feels_like">Feels like {{ city.main.feels_like - 273 }} Celsius</div>
+                        <div *ngIf="city.main.temp_min">Min : {{ city.main.temp_min - 273 }} Celsius</div>
+                        <div *ngIf="city.main.temp_max">Max : {{ city.main.temp_max - 273 }} Celsius</div>
 
-                        <div class="mt-3">Pressure : </div>
-                        <div>Humidity : </div>
-                        <div>Wind Speed : </div>
+                        <div *ngIf="city.main.pressure" class="mt-3">Pressure : {{ city.main.pressure }}</div>
+                        <div *ngIf="city.main.humidity">Humidity : {{ city.main.humidity }}</div>
+                        <div *ngIf="city.wind.speed">Wind Speed : {{ city.wind.speed }}</div>
 
-                        <div class="mt-3">Sunrise : </div>
-                        <div>Sunset : </div>
+                        <div *ngIf="city.sys.sunrise" class="mt-3">Sunrise : {{ city.sys.sunrise }}</div>
+                        <div *ngIf="city.sys.sunset">Sunset : {{ city.sys.sunset }}</div>
                     </div>
-                </div>
 
-                <div class="font-xs text-right font-weight-bold text-success">Updated at 10:45</div>
+                    <div *ngIf="city.update" class="font-xs text-right font-weight-bold text-success">Updated at {{ city.update }}</div>
+                </div>
             </div>
           </div>
     </div>
