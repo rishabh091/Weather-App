@@ -15,6 +15,7 @@ export class CompHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.insertDummy()
+    this.startUpdateInterval()
   }
 
   insertDummy() {
@@ -46,6 +47,18 @@ export class CompHomeComponent implements OnInit {
     for(let i = 0; i < 9; i++) {
       this.cities.push(dummy)
     }
+  }
+
+  startUpdateInterval() {
+    const interval = setInterval(() => {
+      this.cities.forEach((value, index) => {
+        if(value.name != '') {
+          this.getWeather(index)
+        }
+
+        console.log(index + ' updated')
+      })
+    }, 30000)
   }
 
   enterCity(event, index) {
