@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --dark-blue: #162447;
+    --blue: #1f4068;
+    --super-blue: #1b1b2f;
+    --contrast-red: #e43f5a;
+}

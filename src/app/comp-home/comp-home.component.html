@@ -1,1 +1,17 @@
-<p>comp-home works!</p>
+<h1 class="display-4 p-5 custom-spacing bg-grad">Weather <span class="font-weight-bold">Dashboard</span></h1>
+
+<div class="container-fluid center-pos bg-blue">
+    <div *ngFor="let city of cities; index as i;">
+        <div class="card width-400px mt-4 mb-4">
+            <div class="d-flex">
+                <input type="text" class="input-field m-2 p-2" placeholder="city">
+                <img class="card-img-top weather-icon m-4" src="../../assets/sunny.svg" alt="weather image">
+            </div>
+
+            <div class="card-body">
+              <h4 class="card-title">John Doe</h4>
+              <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+            </div>
+          </div>
+    </div>
+</div>
