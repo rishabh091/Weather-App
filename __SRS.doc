@@ -1,0 +1,53 @@
+Purpose : The application will have 9 different card and will let user to select and edit city. The weather information
+is fetched from Open Weather Map API and is displayed in cooresponding card. The app has offline support and will show 
+previous fetched data when offline. The app will autoupdate all its information in 30 seconds so information displayed
+is correct and latest.
+
+--------------------!!CAUTION!!------------------------------------------------------------------------------------
+THE API HAS A LIMITED USE OF 100 CALLS PER DAY, IF WEBSITE IS UNABLE TO FETCH DATA THAT MEANS THE LIMIT IS EXCEEDED.
+WAIT 24 HOURS BEFORE TESTING IT AGAIN.
+-------------------------------------------------------------------------------------------------------------------
+
+Technologies used : 
+1. Angular
+2. Bootstrap 4
+3. Open Weather Map API
+
+Hosted Link : https://maximl-weather.web.app
+Github Clone URL : https://github.com/rishabh091/Weather-App.git
+
+Requirements : 
+1. The app consists of a grid of 9 panels. Every panel shows the weather data of one
+city. Initially, all panels would be empty.
+(COMPLETED)
+
+2. On clicking on an empty panel, a text box is shown on the panel itself, asking the
+user to enter the city name. On entering the name, the panel now shows weather
+data for that city.
+(COMPLETED)
+
+3. Every panel should have an “Edit” button - on clicking this, the user should be
+able to change the city shown in that panel.
+(COMPLETED)
+
+4. If there was an error in getting the data (eg. wrong city name), the panel itself
+shows the error and the user can re-enter the city name.
+(COMPLETED)
+
+5. Every panel has a background picture that describes the weather at the city - eg.
+sunny/rainy/cloudy.
+(COMPLETED)
+
+6. The panels should be in a grid and responsive - the panels should align
+themselves in a row with respect to the screen size: for small screens - less
+number of panels in a row and for large screens - more number of panels in a
+row.
+(COMPLETED)
+
+7. The weather data must be updated regularly - data displayed should be no more
+than 30 seconds old. This must not be done using a manual refresh button.
+(COMPLETED)
+
+8. Enable offline use - on refreshing the page, even when offline, the page shows
+the last obtained weather data.
+(COMPLETED)
