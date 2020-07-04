@@ -72,7 +72,7 @@ export class ServiceWeatherService {
       }
     ]
 
-    let asset = '../../assets/cloud.svg'
+    let asset = '../../assets/sunny.svg'
     weathers.forEach(value => {
       if(value.weather.toLowerCase().includes(weather.toLowerCase()) ||
       weather.toLowerCase().includes(value.weather.toLowerCase())) {

@@ -16,6 +16,20 @@ export class CompHomeComponent implements OnInit {
   ngOnInit(): void {
     this.insertDummy()
     this.interval()
+    this.getLocalData()
+  }
+
+  getLocalData() {
+    if(localStorage.length != 0) {
+      try {
+        for(let i = 0; i < 9; i++) {
+          this.cities[i] = JSON.parse(localStorage.getItem(i + ''));
+        }
+      }
+      catch(e) {
+        console.log(e)
+      }
+    }
   }
 
   interval() {
@@ -77,6 +91,7 @@ export class CompHomeComponent implements OnInit {
       spinner.style.display = "none"
 
       this.cities[index] = result
+      localStorage.setItem(index, JSON.stringify(result))
 
       console.log(this.cities)
     })
