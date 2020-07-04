@@ -9,12 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class CompHomeComponent implements OnInit {
 
   public cities = []
-  private city: String
+  public name = []
 
   constructor(private weatherService: ServiceWeatherService) { }
 
   ngOnInit(): void {
     this.insertDummy()
+    this.interval()
+  }
+
+  interval() {
+    const interval = setInterval(() => {
+      for(let i = 0; i < this.name.length; i++) {
+        if(this.name[i] != '') {
+          this.getWeather(i)
+        }
+      }
+    }, 30000)
   }
 
   insertDummy() {
@@ -45,21 +56,21 @@ export class CompHomeComponent implements OnInit {
 
     for(let i = 0; i < 9; i++) {
       this.cities.push(dummy)
+      this.name.push('')
     }
   }
 
   enterCity(event, index) {
-    this.city = event.target.value
+    this.name[index] = event.target.value
   }
 
   getWeather(index) {
-    this.city = ''
-    console.log(this.city)
+    console.log(this.name)
 
     let spinner = document.getElementById(index + 100)
     spinner.style.display = "block"
 
-    this.weatherService.getWeather(this.city)
+    this.weatherService.getWeather(this.name[index])
     .then((result: any) => {
       result.update = this.weatherService.currentTime()
       result.icon = this.weatherService.getIcon(result.weather[0].main)
