@@ -22,7 +22,7 @@ export class CompHomeComponent implements OnInit {
   getLocalData() {
     if(localStorage.length != 0) {
       try {
-        for(let i = 0; i < 9; i++) {
+        for(let i = 0; i < localStorage.length; i++) {
           this.cities[i] = JSON.parse(localStorage.getItem(i + ''));
         }
       }
@@ -65,13 +65,16 @@ export class CompHomeComponent implements OnInit {
         speed: ''
       },
       dt: '',
-      name: ''
+      name: '',
+      icon: ''
     }
 
     for(let i = 0; i < 9; i++) {
       this.cities.push(dummy)
       this.name.push('')
     }
+    console.log(this.cities)
+    console.log(this.name)
   }
 
   enterCity(event, index) {
