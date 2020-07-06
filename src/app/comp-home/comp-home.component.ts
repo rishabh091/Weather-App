@@ -23,7 +23,11 @@ export class CompHomeComponent implements OnInit {
     if(localStorage.length != 0) {
       try {
         for(let i = 0; i < localStorage.length; i++) {
-          this.cities[i] = JSON.parse(localStorage.getItem(i + ''));
+          const data = JSON.parse(localStorage.getItem(i + 'rishabh'))
+
+          if(data !== null) {
+            this.cities[i] = data
+          }
         }
       }
       catch(e) {
@@ -94,7 +98,7 @@ export class CompHomeComponent implements OnInit {
       spinner.style.display = "none"
 
       this.cities[index] = result
-      localStorage.setItem(index, JSON.stringify(result))
+      localStorage.setItem(index + 'rishabh', JSON.stringify(result))
 
       console.log(this.cities)
     })
